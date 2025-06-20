@@ -28,3 +28,7 @@ jobs:
     - name: Run Flask app (optional for test only)
       run: |
         echo "You can run test commands here"
+
+    - name: Run tests
+      run: |
+        pytest

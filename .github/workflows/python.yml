@@ -25,9 +25,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Flask app (optional for test only)
+    # - name: Run Flask app (optional for test only)
+    #   run: |
+    #     echo "You can run test commands here"
+
+    - name: Run Flask app (for dry test)
       run: |
-        echo "You can run test commands here"
+        nohup python app.py &
+        sleep 5
+        curl http://127.0.0.1:5000
+
 
     - name: Run tests
       run: |

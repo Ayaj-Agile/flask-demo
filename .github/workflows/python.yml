@@ -31,9 +31,11 @@ jobs:
 
     - name: Run Flask app (for dry test)
       run: |
-        nohup python -m flask_main.main &
+        nohup python -m flask_main.main > flask.log 2>&1 &
         sleep 5
-        curl http://127.0.0.1:5000
+        echo "🔍 Flask Response:"
+        curl -s http://127.0.0.1:5000
+
 
 
     - name: Run tests
